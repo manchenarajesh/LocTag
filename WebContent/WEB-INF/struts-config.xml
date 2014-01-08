@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+
+<struts-config>
+
+	<!-- ========== Action Mapping Definitions ============================== -->
+	<action-mappings>
+
+		<action path="/postcomment" type="loctag.actions.CommentAction">
+			<forward name="success" path="/annotationpage.jsp" />
+		</action>
+		
+		<action path="/updatephoto" type="loctag.actions.UpdatePhotoAction">
+			<forward name="success" path="/annotationpage.jsp" />
+		</action>
+		
+		<action path="/updatedetails" type="loctag.actions.UpdateDetailsAction">
+			<forward name="success" path="/annotationpage.jsp" />
+		</action>
+		
+		<action path="/bookmark" type="loctag.actions.BookmarkAction">
+			<forward name="success" path="/annotationpage.jsp" />
+		</action>
+
+		<action path="/follow" type="loctag.actions.FollowAction">
+			<forward name="success" path="/homepage.jsp" />
+		</action>
+
+		<action path="/community" type="loctag.actions.CommunityAction">
+			<forward name="success" path="/community.jsp" />
+		</action>
+		
+		<action path="/homepage" type="loctag.actions.HomePageAction">
+			<forward name="success" path="/homepage.jsp" />
+		</action>
+		
+		<action path="/viewuser" type="loctag.actions.ViewUserAction">
+			<forward name="success" path="/userpage.jsp" />
+		</action>
+		
+
+		<action path="/annotation" type="loctag.actions.ViewAnnotationAction">
+			<forward name="success" path="/annotationpage.jsp" />
+		</action>
+		
+		<action path="/loctag" type="loctag.actions.ViewAnnotationAction">
+			<forward name="success" path="/annotationpage.jsp" />
+		</action>
+		
+		<action path="/edit" type="loctag.actions.EditAction">
+			<forward name="success" path="/edit.jsp" />
+		</action>
+
+		<action path="/create" type="loctag.actions.CreateAnnotationAction">
+			<forward name="success" path="/create.jsp" />
+		</action>
+		
+		<action path="/settings" type="loctag.actions.SettingsAction">
+			<forward name="success" path="/settings.jsp" />
+		</action>
+		
+		<action path="/search" type="loctag.actions.SearchAction">
+			<forward name="success" path="/search.jsp" />
+		</action>
+		
+		<action path="/submitAnnotation" type="loctag.actions.SubmitAnnotationAction">
+			<forward name="success" path="/category.jsp" />
+		</action>
+
+
+		<action path="/logout" type="loctag.actions.LogoutAction">
+			<forward name="success" path="/signin.jsp" />
+		</action>
+
+		<action path="/facebooklogin" type="loctag.actions.FBloginAction">
+			<forward name="success" path="/homepage.jsp" />
+		</action>
+
+
+		<!-- ========== Virtual actions for JSPs =========================== -->
+		<action path="/signin" type="org.apache.struts.actions.ForwardAction"
+			parameter="/signin.jsp">
+		</action>
+
+
+	</action-mappings>
+
+
+	<!-- ========== Message Resources Definitions =========================== -->
+	<message-resources null="false" parameter="ApplicationResources" />
+
+
+
+</struts-config>

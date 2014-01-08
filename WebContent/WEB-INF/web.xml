@@ -1,0 +1,139 @@
+<!--<?xml version = "1.0" encoding = "ISO-8859-1"?> -->
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/j2ee/dtds/web-app_2_3.dtd">
+
+<web-app>
+
+	<!-- Filter to protect direct access to JSPs and to check session presence-->
+
+	<filter>
+		<filter-name>
+			ProtectionFilter
+    </filter-name>
+		<filter-class>
+			loctag.filters.ProtectionFilter
+    </filter-class>
+	</filter>
+
+	<!-- Filter to direct the Facebook auth to the FBloginAction -->
+
+	<filter>
+		<filter-name>
+			FacebookFilter
+    </filter-name>
+		<filter-class>
+			loctag.filters.FacebookFilter
+    </filter-class>
+	</filter>
+	
+	<!-- Filter to direct ID requests to the IDAction -->
+
+	<filter>
+		<filter-name>
+			IDFilter
+    </filter-name>
+		<filter-class>
+			loctag.filters.IDFilter
+    </filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>
+			IDFilter
+    </filter-name>
+		<url-pattern>
+			/*
+    </url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>
+			ProtectionFilter
+    </filter-name>
+		<url-pattern>
+			*.do
+    	</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>
+			FacebookFilter
+    </filter-name>
+		<url-pattern>
+			/fblogin/*
+    </url-pattern>
+	</filter-mapping>
+
+
+
+
+	<!-- Action Servlet Configuration -->
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/struts-config.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+
+
+	<!-- Action Servlet Mapping -->
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.loc</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- The Welcome File List -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	
+
+	<!-- Tag Library Descriptors -->
+	<taglib>
+		<taglib-uri>/WEB-INF/lib/c.tld</taglib-uri>
+		<taglib-location>/WEB-INF/lib/c.tld</taglib-location>
+	</taglib>
+
+	<taglib>
+		<taglib-uri>/WEB-INF/lib/fmt.tld</taglib-uri>
+		<taglib-location>/WEB-INF/lib/fmt.tld</taglib-location>
+	</taglib>
+
+	<taglib>
+		<taglib-uri>/WEB-INF/lib/sql.tld</taglib-uri>
+		<taglib-location>/WEB-INF/lib/sql.tld</taglib-location>
+	</taglib>
+
+	<taglib>
+		<taglib-uri>/WEB-INF/lib/x.tld</taglib-uri>
+		<taglib-location>/WEB-INF/lib/x.tld</taglib-location>
+	</taglib>
+
+	<taglib>
+		<taglib-uri>/WEB-INF/lib/struts-bean-el.tld</taglib-uri>
+		<taglib-location>/WEB-INF/lib/struts-bean-el.tld</taglib-location>
+	</taglib>
+
+	<taglib>
+		<taglib-uri>/WEB-INF/lib/struts-html-el.tld</taglib-uri>
+		<taglib-location>/WEB-INF/lib/struts-html-el.tld</taglib-location>
+	</taglib>
+
+	<taglib>
+		<taglib-uri>/WEB-INF/lib/struts-logic-el.tld</taglib-uri>
+		<taglib-location>/WEB-INF/lib/struts-logic-el.tld</taglib-location>
+	</taglib>
+
+
+
+</web-app>
